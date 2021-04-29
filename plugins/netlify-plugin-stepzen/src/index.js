@@ -3,6 +3,9 @@ const chalk = require('chalk')
 const stepzen = require('@stepzen/sdk')
 
 async function run(args) {
+  // args
+  console.log('args', args)
+
   const stepzenSecret = args.netlifyConfig.build.environment.STEPZEN_API_KEY
   const stepzenAccount = args.netlifyConfig.build.environment.STEPZEN_ACCOUNT
   const stepzenSchema =
@@ -35,9 +38,6 @@ async function run(args) {
     ],
     schema: `${stepzenFolder}/${stepzenSchema}`,
   })
-  console.log('client', client.deploy)
-  console.log('schemas', client.upload.schemas)
-  console.log('configurationsets', client.upload.configurationsets)
 }
 
 module.exports = {

@@ -10,7 +10,7 @@ module.exports = {
       options: {
         typeName: "StepZen",
         fieldName: "stepzen",
-        url: `https://${process.env.STEPZEN_ACCOUNT}.stepzen.net/${process.env.NEXT_PUBLIC_STEPZEN_FOLDER}/${process.env.NEXT_PUBLIC_STEPZEN_ENDPOINT}/__graphql`,
+        url: `https://hollister.stepzen.net/api/telling-guppy/__graphql`,
         headers: {
           Authorization: `Apikey ${process.env.STEPZEN_API_KEY}`,
         },

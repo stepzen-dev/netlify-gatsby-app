@@ -9,8 +9,7 @@
   incoming-hooks = ["StepZen"]
 
 [template.environment]
-  STEPZEN_ENDPOINT = "Name your endpoint. Defaults to endpoint"
-  STEPZEN_SCHEMA = "Name your schema. Defaults to schema"
+  STEPZEN_NAME = "Name your endpoint. Defaults to endpoint"
   STEPZEN_FOLDER = "Name your folder. Defaults to netlify"
-  STEPZEN_API_KEY = "Add your StepZen admin key"
+  STEPZEN_ADMIN_KEY = "Add your StepZen admin key"
   STEPZEN_ACCOUNT = "Add your StepZen account name"

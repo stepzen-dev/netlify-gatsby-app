@@ -9,6 +9,10 @@
 
 ## 🚀 Quick start
 
+
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/stepzen-samples/netlify-gatsby-app"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" /></a>
+
+
 1.  **Create a Gatsby site.**
 
     Use the Gatsby CLI to create a new site, specifying the minimal starter.

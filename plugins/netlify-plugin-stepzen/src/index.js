@@ -34,26 +34,24 @@ module.exports = {
     // if(!args.netlifyConfig.build.environment.STEPZEN_ADMIN_KEY) {
     //   return args.utils.build.failBuild('Failed finding the STEPZEN_ADMIN_KEY in the Netlify Environment Variables.')
     // }
-    const stepzenSecret =
-      args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_API_KEY
+    const stepzenSecret = args.netlifyConfig.build.environment.STEPZEN_API_KEY
     // if(!args.netlifyConfig.build.environment.STEPZEN_ACCOUNT) {
     //   return utils.build.failBuild('Failed finding the STEPZEN_ADMIN_KEY in the Netlify Environment Variables.')
     // }
     // }
     if (args.packageJson.dependencies.next) {
-      if (!args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_API_KEY) {
+      if (!args.netlifyConfig.build.environment.STEPZEN_API_KEY) {
         return args.utils.build.failBuild(
-          'Failed finding the NEXT_PUBLIC_STEPZEN_API_KEY in the Netlify Environment Variables.',
+          'Failed finding the STEPZEN_API_KEY in the Netlify Environment Variables.',
         )
       }
-      if (!args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_ACCOUNT) {
+      if (!args.netlifyConfig.build.environment.STEPZEN_ACCOUNT) {
         return utils.build.failBuild(
-          'Failed finding the NEXT_PUBLIC_STEPZEN_ACCOUNT in the Netlify Environment Variables.',
+          'Failed finding the STEPZEN_ACCOUNT in the Netlify Environment Variables.',
         )
       }
     }
-    const stepzenAccount =
-      args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_ACCOUNT
+    const stepzenAccount = args.netlifyConfig.build.environment.STEPZEN_ACCOUNT
     const stepzenSchema =
       args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_SCHEMA ||
       'schema'

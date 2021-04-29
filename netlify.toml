@@ -10,7 +10,7 @@
 
 [template.environment]
   STEPZEN_ENDPOINT = "Name your endpoint. Defaults to endpoint"
-  NEXT_PUBLIC_STEPZEN_SCHEMA = "Name your schema. Defaults to schema"
+  STEPZEN_SCHEMA = "Name your schema. Defaults to schema"
   STEPZEN_FOLDER = "Name your folder. Defaults to netlify"
   STEPZEN_API_KEY = "Add your StepZen admin key"
   STEPZEN_ACCOUNT = "Add your StepZen account name"

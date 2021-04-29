@@ -51,6 +51,8 @@ module.exports = {
         )
       }
     }
+  },
+  async onBuild(args) {
     const stepzenAccount = args.netlifyConfig.build.environment.STEPZEN_ACCOUNT
     const stepzenSchema =
       args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_SCHEMA ||
@@ -90,7 +92,6 @@ module.exports = {
     console.log('configurationsets', client.upload.configurationsets)
     args.utils.status.show({ summary: 'Success!' })
   },
-  async onBuild(args) {},
   async onPostBuild(args) {},
   async onSuccess(args) {},
   async onError(args) {},

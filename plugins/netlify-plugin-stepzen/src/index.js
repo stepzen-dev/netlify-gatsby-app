@@ -3,53 +3,7 @@ const chalk = require('chalk')
 const stepzen = require('@stepzen/sdk')
 
 async function run(args) {
-  console.log('PreBuild')
-
-  // Optional Plugin Values
-
-  // args
-  console.log('args', args)
-
-  // end Optional Plugin Values
-
-  args.utils.status.show({ summary: 'Success!' })
-  let buildEnv = 'react'
-
-  // Better environment variables to set as conditional?
-
-  console.log('args.packageJson.dependencies', args.packageJson.dependencies)
-  if (!args.packageJson.dependencies.next) {
-    console.log('its not here')
-  }
-  if (args.packageJson.dependencies.next) {
-    buildEnv = 'next'
-  }
-  if (args.packageJson.dependencies.gatsby) {
-    buildEnv = 'gatsby'
-  }
-  // console.log('buildEnv', buildEnv);
-  // console.log('Build')
-  // if(buildEnv = "react") {
-  // if(!args.netlifyConfig.build.environment.STEPZEN_ADMIN_KEY) {
-  //   return args.utils.build.failBuild('Failed finding the STEPZEN_ADMIN_KEY in the Netlify Environment Variables.')
-  // }
   const stepzenSecret = args.netlifyConfig.build.environment.STEPZEN_API_KEY
-  // if(!args.netlifyConfig.build.environment.STEPZEN_ACCOUNT) {
-  //   return utils.build.failBuild('Failed finding the STEPZEN_ADMIN_KEY in the Netlify Environment Variables.')
-  // }
-  // }
-  if (args.packageJson.dependencies.next) {
-    if (!args.netlifyConfig.build.environment.STEPZEN_API_KEY) {
-      return args.utils.build.failBuild(
-        'Failed finding the STEPZEN_API_KEY in the Netlify Environment Variables.',
-      )
-    }
-    if (!args.netlifyConfig.build.environment.STEPZEN_ACCOUNT) {
-      return utils.build.failBuild(
-        'Failed finding the STEPZEN_ACCOUNT in the Netlify Environment Variables.',
-      )
-    }
-  }
   const stepzenAccount = args.netlifyConfig.build.environment.STEPZEN_ACCOUNT
   const stepzenSchema =
     args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_SCHEMA || 'schema'

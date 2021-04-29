@@ -6,17 +6,47 @@ async function run(args) {
   // args
   console.log('args', args)
 
-  const stepzenSecret = args.netlifyConfig.build.environment.STEPZEN_API_KEY
-  const stepzenAccount = args.netlifyConfig.build.environment.STEPZEN_ACCOUNT
-  const stepzenSchema =
-    args.netlifyConfig.build.environment.STEPZEN_SCHEMA || 'schema'
-  const stepzenEndpoint =
-    args.netlifyConfig.build.environment.STEPZEN_ENDPOINT || 'endpoint'
-  const stepzenConfiguration =
-    args.netlifyConfig.build.environment.STEPZEN_CONFIGURATIONSETS ||
-    'configuration'
-  const stepzenFolder =
-    args.netlifyConfig.build.environment.STEPZEN_FOLDER || 'netlify'
+  let stepzenSecret = ''
+  let stepzenAccount = ''
+  let stepzenSchema = 'schema'
+  let stepzenEndpoint = 'endpoint'
+  let stepzenConfiguration = 'configuration'
+  let stepzenFolder = 'netlify'
+  let buildEnv = 'react'
+
+  if (args.packageJson.dependencies.next) {
+    buildEnv = 'next'
+    stepzenAccount =
+      args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_ACCOUNT
+    stepzenSchema =
+      args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_SCHEMA ||
+      'schema'
+    stepzenEndpoint =
+      args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_ENDPOINT ||
+      'endpoint'
+    stepzenConfiguration =
+      args.netlifyConfig.build.environment.STEPZEN_CONFIGURATIONSETS ||
+      'configuration'
+    stepzenFolder =
+      args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_FOLDER ||
+      'netlify'
+  } else if (args.packageJson.dependencies.gatsby) {
+    buildEnv = 'gatsby'
+    stepzenSecret = args.netlifyConfig.build.environment.STEPZEN_API_KEY
+    stepzenAccount = args.netlifyConfig.build.environment.STEPZEN_ACCOUNT
+    stepzenSchema =
+      args.netlifyConfig.build.environment.STEPZEN_SCHEMA || 'schema'
+    stepzenEndpoint =
+      args.netlifyConfig.build.environment.STEPZEN_ENDPOINT || 'endpoint'
+    stepzenConfiguration =
+      args.netlifyConfig.build.environment.STEPZEN_CONFIGURATIONSETS ||
+      'configuration'
+    stepzenFolder =
+      args.netlifyConfig.build.environment.STEPZEN_FOLDER || 'netlify'
+  } else {
+    buildEnv = 'react'
+  }
+
   console.log(
     chalk.white(
       `pushing schema to ${stepzenFolder}/${stepzenSchema}, and deploying to ${stepzenFolder}/${stepzenEndpoint} using ${stepzenFolder}/${stepzenConfiguration}`,

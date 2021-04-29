@@ -59,14 +59,12 @@ module.exports = {
       args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_SCHEMA ||
       'schema'
     const stepzenEndpoint =
-      args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_ENDPOINT ||
-      'endpoint'
+      args.netlifyConfig.build.environment.STEPZEN_ENDPOINT || 'endpoint'
     const stepzenConfiguration =
       args.netlifyConfig.build.environment.STEPZEN_CONFIGURATIONSETS ||
       'configuration'
     const stepzenFolder =
-      args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_FOLDER ||
-      'netlify'
+      args.netlifyConfig.build.environment.STEPZEN_FOLDER || 'netlify'
     console.log(
       chalk.white(
         `pushing schema to ${stepzenFolder}/${stepzenSchema}, and deploying to ${stepzenFolder}/${stepzenEndpoint} using ${stepzenFolder}/${stepzenConfiguration}`,

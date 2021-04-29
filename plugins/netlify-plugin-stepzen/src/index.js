@@ -51,7 +51,6 @@ module.exports = {
         )
       }
     }
-    const stepzenSecret = args.netlifyConfig.build.environment.STEPZEN_API_KEY
     const stepzenAccount = args.netlifyConfig.build.environment.STEPZEN_ACCOUNT
     const stepzenSchema =
       args.netlifyConfig.build.environment.NEXT_PUBLIC_STEPZEN_SCHEMA ||

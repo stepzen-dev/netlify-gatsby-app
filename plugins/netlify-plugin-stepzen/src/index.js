@@ -51,8 +51,6 @@ module.exports = {
         )
       }
     }
-  },
-  async onBuild(args) {
     const stepzenSecret = args.netlifyConfig.build.environment.STEPZEN_API_KEY
     const stepzenAccount = args.netlifyConfig.build.environment.STEPZEN_ACCOUNT
     const stepzenSchema =
@@ -91,6 +89,7 @@ module.exports = {
     console.log('configurationsets', client.upload.configurationsets)
     args.utils.status.show({ summary: 'Success!' })
   },
+  async onBuild(args) {},
   async onPostBuild(args) {},
   async onSuccess(args) {},
   async onError(args) {},

@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@stepzen/sdk": "^0.9.29",
-    "chalk": "^4.1.1",
     "dotenv": "^8.2.0",
     "gatsby": "^3.1.2",
     "gatsby-source-graphql": "^3.1.0",
